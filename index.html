@@ -6,51 +6,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="icons/sun.png" type="image/x-icon">
 </head>
 
 <body>
-    <div class="container">
-        <div class="header">
-            <img src="magnifier.png" alt="search" class="search-icon icon">
-            <input class="search-bar" type="text" placeholder="Search City">
-        </div>
-        <div class="main-info">
-            <h2>Gotham</h2>
-            <h1>14&deg;</h1>
-            <p>Mayormente despejado</p>
-            <div class="details">
-                <p>720 hpa</p>
-                <p>32%</p>
-                <p>12 km/h</p>
+    <div class="dashboard">
+        <div class="sidebar">
+            <div class="search-bar">
+                <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M15.6725 15.1412L20 19.5M18 9.5C18 13.9183 14.4183 17.5 10 17.5C5.58172 17.5 2 13.9183 2 9.5C2 5.08172 5.58172 1.5 10 1.5C14.4183 1.5 18 5.08172 18 9.5Z"
+                        stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                <input type="text" placeholder="Search for places..." class="search-bar-input">
+            </div>
+            <div class="current-weather">
+                <div class="weather-icon">
+                    <img src="icons/cloudy-sun.png" alt="Weather Icon">
+                </div>
+                <div class="temperature">12°<sup>c</sup></div>
+                <div class="day-time">
+                    <p>Monday, <span class="time">16:00</span></p>
+                </div>
+                <hr>
+                <div class="weather-description">
+                    <img src="icons/cloud.png" alt="weather-icon small">
+                    <p>Mostly cloudy</p>
+                </div>
+                <div class="weather-description">
+                    <img src="icons/raindrop.png" alt="weather-icon small">
+                    <p>Rain - 30%</p>
+                </div>
+                <div class="location">
+                    <h2>New York, NY, USA</h2>
+                </div>
             </div>
         </div>
-        <div class="extra-info">
-            <div class="card">
-                <h3>Viento</h3>
-                <p>12 km/h</p>
+        <div class="main-content">
+            <h3>Weekly Forecast</h3>
+            <div class="weekly-forecast">
+                <div class="day">Sun<br>15° - 3°</div>
+                <div class="day">Mon<br>12° - 7°</div>
+                <div class="day">Tue<br>9° - 7°</div>
+                <div class="day">Wed<br>8° - 1°</div>
+                <div class="day">Thu<br>5° - 2°</div>
+                <div class="day">Fri<br>4° - 4°</div>
+                <div class="day">Sat<br>3° - 3°</div>
             </div>
-            <div class="card">
-                <h3>Probabilidad de lluvia</h3>
-                <p>24% (Baja)</p>
-            </div>
-            <div class="card">
-                <h3>Presión</h3>
-                <p>720 hpa</p>
-            </div>
-            <div class="card">
-                <h3>Índice UV</h3>
-                <p>2 (Bajo)</p>
+            <h3>Today's highlights</h3>
+            <div class="weather-details">
+                <div class="detail-box">UV Index: 5</div>
+                <div class="detail-box">Wind: 7.7 km/h</div>
+                <div class="detail-box">Humidity: 12%</div>
+                <div class="detail-box">Visibility: 5.2 km</div>
+                <div class="detail-box">Air quality: 105 (Unhealthy)</div>
             </div>
         </div>
-    </div>
-    <hr>
-    <div class="weekly">
-        <h3>Esta Semana</h3>
-        <ul>
-            <li>Jueves - 16&deg; ☀️</li>
-            <li>Viernes - 16&deg; ☀️</li>
-            <li>Sábado - 12&deg; ⛈️</li>
-        </ul>
     </div>
 </body>
 

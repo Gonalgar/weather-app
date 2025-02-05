@@ -1,76 +1,146 @@
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f4f8;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-.container {
-    display: flex;
-    flex-direction: column;
-    max-width: 600px;
-    margin: auto;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+@font-face {
+  font-family: 'SansSerifFLF';
+  src: url('fonts/SansSerifBookFLF.otf') format('opentype');
 }
 
-.header {
-    display: flex;
-    align-self: flex-start;
-    margin: 0;
-    padding: 0;
+@font-face {
+  font-family: 'SansSerifBookFLF';
+  src: url('fonts/SansSerifBookFLF.otf') format('opentype');
 }
 
-input {
-    padding: 0.7rem;
-    margin: 0.7rem;
-    border-radius: 1.25rem;
-    border: 1px solid #ddd;
+@font-face {
+  font-family: 'SansSerifFLF-Bold';
+  src: url('fonts/SansSerifBldFLF.otf') format('opentype');
 }
 
-.icon {
-    margin-top: auto;
-    margin-bottom: auto;
-    height: 1rem;
+@font-face {
+  font-family: 'SansSerifFLF-Italic';
+  src: url('fonts/SansSerifBookFLF-Italic.otf') format('opentype');
 }
 
-.main-info {
-    margin: 10px;
-    background: #c4e2fe;
-    color: #255f98;
-    padding: 20px;
-    border-radius: 10px;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'SansSerifBookFLF', Arial, sans-serif;
 }
-.details {
-    display: flex;
-    justify-content: space-around;
+
+.dashboard {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background: white;
 }
-.extra-info {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+
+.sidebar {
+  width: 20%;
+  padding: 20px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
-.card {
-    background: #fff;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 48%;
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
 }
-.weekly {
-    margin-top: 20px;
+
+.search-bar svg {
+  margin-right: 10px;
 }
-ul {
-    list-style: none;
-    padding: 0;
+
+.search-bar-input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: none;
+  outline: none;
+  font-size: 1.25rem;
 }
-li {
-    background: #e3f2fd;
-    margin: 5px 0;
-    padding: 10px;
-    border-radius: 5px;
+
+.current-weather {
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.current-weather .location {
+  text-align: center;
+  padding: 10%;
+  border-radius: 1rem;
+  font-weight: bold;
+  background-color: #f7f6f9;
+}
+
+.current-weather .temperature {
+  font-size: 4em;
+  font-weight: bold;
+}
+
+.weather-details {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.detail-box {
+  background: #ececec;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  flex: 1;
+  margin: 0 5px;
+}
+
+.weekly-forecast {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.day-time {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.time {
+  color: #b9b9b9;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  padding: 20px;
+  background-color: #f7f6f9;
+}
+
+.weather-icon {
+  padding: 0 15%;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.weather-description {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  height: 10%;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.weather-description img {
+  width: 3rem;
+  height: 3rem;
 }
