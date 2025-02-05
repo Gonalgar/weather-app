@@ -18,6 +18,12 @@
   src: url('fonts/SansSerifBookFLF-Italic.otf') format('opentype');
 }
 
+:root {
+  --white: #ffffff;
+  --grey: #b9b9b9;
+  --black: #000000;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -82,26 +88,6 @@
   font-weight: bold;
 }
 
-.weather-details {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-.detail-box {
-  background: #ececec;
-  padding: 10px;
-  border-radius: 10px;
-  text-align: center;
-  flex: 1;
-  margin: 0 5px;
-}
-
-.weekly-forecast {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
 
 .day-time {
   font-size: 1.2rem;
@@ -112,13 +98,6 @@
   color: #b9b9b9;
 }
 
-.main-content {
-  display: flex;
-  flex-direction: column;
-  width: 80%;
-  padding: 20px;
-  background-color: #f7f6f9;
-}
 
 .weather-icon {
   padding: 0 15%;
@@ -143,4 +122,106 @@ img {
 .weather-description img {
   width: 3rem;
   height: 3rem;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  padding: 20px 5%;
+  background-color: #f7f6f9;
+}
+
+.weekly-forecast {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.section-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.section-header h3 {
+  color: var(--black);
+}
+
+.toggle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.toggle {
+  font-size: 1.25rem;
+  text-align: center;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--black);
+  background-color: var(--white);
+}
+
+.toggle.active {
+  color: var(--white);
+  background-color: var(--black);
+}
+
+.weekly-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.day-forecast {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+  background: var(--white);
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+}
+
+.day {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--black);
+}
+
+.day-temperatures {
+  font-size: 16px;
+  font-weight: bold;
+  gap: 10px;
+}
+
+.icon {
+  width: 50px;
+}
+
+.high {
+  color: var(--black);
+}
+
+.low {
+  color: var(--grey);
+}
+
+.weather-details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
 }
