@@ -1,15 +1,14 @@
 
-function renderCurrentWeather(location, weekday, time, temperature, description, rainChance, metric) {
+function renderCurrentWeather(location, weekday, time, temperature, description, rainChance, icon, metric) {
     const currentWeatherDiv = document.querySelector('.current-weather');
     currentWeatherDiv.innerHTML = '';
 
     const weatherIcon = document.createElement('div');
     weatherIcon.classList.add('weather-icon');
-    const icon = document.createElement('img');
-    // icon.src = `icons/${description}.png`; TODO
-    icon.src = `icons/icons8-partly-cloudy-day-100.png`;
-    icon.alt = 'Weather Icon';
-    weatherIcon.appendChild(icon);
+    const iconDiv = document.createElement('img');
+    iconDiv.src = `icons/${icon}.png`;
+    iconDiv.alt = 'Weather Icon';
+    weatherIcon.appendChild(iconDiv);
     currentWeatherDiv.appendChild(weatherIcon);
 
     const temp = document.createElement('div');
@@ -31,8 +30,7 @@ function renderCurrentWeather(location, weekday, time, temperature, description,
     const weatherDescription = document.createElement('div');
     weatherDescription.classList.add('weather-description');
     const img = document.createElement('img');
-    // img.src = `icons/${description}.png`; TODO
-    img.src = `icons/icons8-clouds-100.png`;
+    img.src = `icons/cloud.png`;
     img.alt = 'weather-icon small';
     weatherDescription.appendChild(img);
     const p1 = document.createElement('p');
@@ -43,7 +41,7 @@ function renderCurrentWeather(location, weekday, time, temperature, description,
     const rain = document.createElement('div');
     rain.classList.add('weather-description');
     const img1 = document.createElement('img');
-    img1.src = `icons/raindrop.png`;
+    img1.src = `icons/wet.png`;
     img1.alt = 'weather-icon small';
     rain.appendChild(img1);
     const p2 = document.createElement('p');
@@ -59,7 +57,7 @@ function renderCurrentWeather(location, weekday, time, temperature, description,
     currentWeatherDiv.appendChild(loc);
 }
 
-function updateDayForecast(index, day, high, low) {
+function updateDayForecast(index, day, high, low, icon) {
     const dayForecasts = document.querySelectorAll('.weekly-carousel .day-forecast');
     if (index < 0 || index >= dayForecasts.length) {
         console.error('Index out of bounds');
@@ -75,11 +73,12 @@ function updateDayForecast(index, day, high, low) {
     dayForecast.querySelector('.day').textContent = day;
     dayForecast.querySelector('.high').textContent = high + '°';
     dayForecast.querySelector('.low').textContent = low + '°';
+    dayForecast.querySelector('.icon').src = `icons/${icon}.png`;
 }
 
 function updateAllDayForecasts(data) {
     data.forEach((weekday, index) => {
-        updateDayForecast(index, weekday.datetime, weekday.tempmax, weekday.tempmin);
+        updateDayForecast(index, weekday.datetime, weekday.tempmax, weekday.tempmin, weekday.icon);
     });
 }
 function updateRainChance(value) {
