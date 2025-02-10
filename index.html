@@ -7,6 +7,7 @@
     <title>Weather App</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="shortcut icon" href="icons/sun.png" type="image/x-icon">
+    <script src="scripts/main.js" type="module" defer></script>
 </head>
 
 <body>
@@ -18,11 +19,11 @@
                         d="M15.6725 15.1412L20 19.5M18 9.5C18 13.9183 14.4183 17.5 10 17.5C5.58172 17.5 2 13.9183 2 9.5C2 5.08172 5.58172 1.5 10 1.5C14.4183 1.5 18 5.08172 18 9.5Z"
                         stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
-                <input type="text" placeholder="Search for places..." class="search-bar-input">
+                <input type="text" id="search-bar-input" placeholder="Search for places..." class="search-bar-input">
             </div>
             <div class="current-weather">
                 <div class="weather-icon">
-                    <img src="icons/cloudy-sun.png" alt="Weather Icon">
+                    <img src="icons/partly-cloudy-day.png" alt="Weather Icon">
                 </div>
                 <div class="temperature">12°<sup>c</sup></div>
                 <div class="day-time">
@@ -34,7 +35,7 @@
                     <p>Mostly cloudy</p>
                 </div>
                 <div class="weather-description">
-                    <img src="icons/raindrop.png" alt="weather-icon small">
+                    <img src="icons/wet.png" alt="weather-icon small">
                     <p>Rain - 30%</p>
                 </div>
                 <div class="location">
@@ -116,89 +117,89 @@
                     <h3>Today's highlights</h3>
                 </div>
                 <div class="weather-details">
-                    <div class="card">
+                    <div class="card rain">
                         <div class="left">
                             <div class="title">Rain Chance</div>
                             <div class="value">20 %</div>
                             <div class="status">Low</div>
                         </div>
                         <div class="right">
-                            <img src="icons/icons8-umbrella-100.png" alt="Rain Chance">
+                            <img src="icons/umbrella.png" alt="Rain Chance">
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card uv-index">
                         <div class="left">
                             <div class="title">UV Index</div>
                             <div class="value">5</div>
                             <div class="status">Moderate</div>
                         </div>
                         <div class="right">
-                            <img src="icons/icons8-sun-100.png" alt="UV Index">
+                            <img src="icons/clear-day.png" alt="UV Index">
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card wind">
                         <div class="left">
                             <div class="title">Wind</div>
                             <div class="value">7.7 km/h</div>
                             <div class="status">WSW</div>
                         </div>
                         <div class="right">
-                            <img src="icons/icons8-wind-100.png" alt="Wind">
+                            <img src="icons/wind-icon.png" alt="Wind">
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card sunrise-sunset">
                         <div class="left">
                             <div class="title">Sunrise & Sunset</div>
                             <div class="sunrise-sunset">
                                 <div class="sunrise">
-                                    <img id="sunrise-icon" src="icons/icons8-sunrise-100.png" alt="Sunrise">
+                                    <img id="sunrise-icon" src="icons/sunrise.png" alt="Sunrise">
                                     <div class="status">6:35 AM</div>
                                 </div>
                                 <div class="sunset">
-                                    <img id="sunset-icon" src="icons/icons8-sunset-100.png" alt="Sunset">
+                                    <img id="sunset-icon" src="icons/sunset.png" alt="Sunset">
                                     <div class="status">5:42 PM</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card humidity">
                         <div class="left">
                             <div class="title">Humidity</div>
                             <div class="value">12 %</div>
                             <div class="status">Normal</div>
                         </div>
                         <div class="right">
-                            <img src="icons/icons8-hygrometer-100.png" alt="Humidity">
+                            <img src="icons/hygrometer.png" alt="Humidity">
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card visibility">
                         <div class="left">
                             <div class="title">Visibility</div>
                             <div class="value">5.2 km</div>
                             <div class="status">Average</div>
                         </div>
                         <div class="right">
-                            <img src="icons/icons8-dust-100.png" alt="Visibility">
+                            <img src="icons/dust.png" alt="Visibility">
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card air-quality">
                         <div class="left">
                             <div class="title">Air quality</div>
                             <div class="value">105</div>
                             <div class="status">Unhealthy</div>
                         </div>
                         <div class="right">
-                            <img src="icons/icons8-afternoon-100.png" alt="Air Quality">
+                            <img src="icons/afternoon.png" alt="Air Quality">
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card pressure">
                         <div class="left">
                             <div class="title">Pressure</div>
                             <div class="value">1015 hPa</div>
                             <div class="status">Normal</div>
                         </div>
                         <div class="right">
-                            <img src="icons/icons8-atmospheric-pressure-100.png" alt="Pressure">
+                            <img src="icons/pressure.png" alt="Pressure">
                         </div>
                     </div>
 
