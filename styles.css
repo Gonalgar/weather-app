@@ -86,7 +86,7 @@ html, body {
 .current-weather .location {
   align-self: center;
   text-align: center;
-  padding: 10%;
+  padding: 5% 10%;
   border-radius: 1rem;
   font-weight: bold;
   background-color: #f7f6f9;

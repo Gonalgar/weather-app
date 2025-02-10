@@ -2,8 +2,12 @@ import { renderCurrentWeather, updateAllDayForecasts, updateRainChance, updateUV
 
 const API_KEY = 'JBQQD74L5H398ACL9YGDARTLR';
 let metric = "c";
+let currentLocation = "London";
 
 async function getWeatherData(location) {
+    location = encodeURIComponent(location);
+    console.log(location);
+    
     let query = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/next7days?`;
 
     if (metric === "c") {
@@ -31,9 +35,6 @@ async function getWeatherData(location) {
         });
 }
 
-let data = await getWeatherData("London", true);
-console.log(data);
-
 function getWindDirection(degree) {
     const directions = ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW'];
     const index = Math.round(degree / 22.5) % 16;
@@ -41,12 +42,15 @@ function getWindDirection(degree) {
 }
 
 async function updateUI(location) {
-    const data = await getWeatherData(location, false);
+    const data = await getWeatherData(location);
     
     if (!data) {
         console.error('No data received');
+        alert('No data was found for the given location');
         return;
     }
+
+    console.log(data);
 
     const today = data.currentConditions;
     const weeklyForecast = data.days;
@@ -63,7 +67,7 @@ async function updateUI(location) {
     updateAllDayForecasts(weeklyForecast);
     updateRainChance(today.precipprob);
     updateUVIndex(today.uvindex);
-    updateWind(today.windspeed, getWindDirection(today.winddir));
+    updateWind(today.windspeed, getWindDirection(today.winddir), metric);
     updateSunriseSunset(today.sunrise, today.sunset);
     updateHumidity(today.humidity);
     updateVisibility(today.visibility, metric);
@@ -73,8 +77,27 @@ async function updateUI(location) {
 
 document.getElementById('search-bar-input').addEventListener('keypress', async (event) => {
     if (event.key === 'Enter') {
-        const location = event.target.value;
-        await updateUI(location);
+        currentLocation = event.target.value;
+        console.log(currentLocation)
+        await updateUI(currentLocation);
+    }
+});
+
+document.getElementById('toggle-celsius').addEventListener('click', async () => {
+    if (metric !== "c") {
+        metric = "c";
+        document.getElementById('toggle-celsius').classList.add('active');
+        document.getElementById('toggle-fahrenheit').classList.remove('active');
+        await updateUI(currentLocation);
+    }
+});
+
+document.getElementById('toggle-fahrenheit').addEventListener('click', async () => {
+    if (metric !== "f") {
+        metric = "f";
+        document.getElementById('toggle-fahrenheit').classList.add('active');
+        document.getElementById('toggle-celsius').classList.remove('active');
+        await updateUI(currentLocation);
     }
 });
 

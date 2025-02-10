@@ -77,6 +77,7 @@ function updateDayForecast(index, day, high, low, icon) {
 }
 
 function updateAllDayForecasts(data) {
+    data = data.slice(0, 7)
     data.forEach((weekday, index) => {
         updateDayForecast(index, weekday.datetime, weekday.tempmax, weekday.tempmin, weekday.icon);
     });
